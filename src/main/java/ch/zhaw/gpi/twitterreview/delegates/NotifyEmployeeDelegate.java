@@ -5,26 +5,27 @@ import org.camunda.bpm.engine.delegate.DelegateExecution;
 import org.camunda.bpm.engine.delegate.JavaDelegate;
 
 /**
- * Implementation des Send Tasks "Mitarbeiter benachritigen"
+ * Implementation des Send Task "Mitarbeiter benachritigen"
+ * 
  * @author kevingarcia
  */
 @Named("notifyEmployeeAdapter")
-public class NotifyEmployeeDelegate implements JavaDelegate{
+public class NotifyEmployeeDelegate implements JavaDelegate {
 
     /**
-     * Mockt das Senden einner Benachrichtigung per Mail
+     *Mockt das Senden einer Benachritigung per Mail
      * 
      * 1. Prozessvariablen auslesen
-     * 2. Die E-Mail-Nachricht zusammenstellen
+     * 2. Die E-Mail Nachricht zusammenstellen
      * 3. Die E-Mail in der Konsole ausgeben
      * 
-     * @param de            Objekt, welches die Verknüpfung zur Process
+     * @param de              Objekt, welches die Verknüpfung zur Process
      * Engine und aktuellen Execution enthält
      * @throws Exception
      */
     @Override
     public void execute(DelegateExecution de) throws Exception {
-         // Prozessvariablen auslesen
+// Prozessvariablen auslesen
         String email = (String) de.getVariable("email");
         String tweetContent = (String) de.getVariable("tweetContent");
         String checkResult = (String) de.getVariable("checkResult");
@@ -48,7 +49,7 @@ public class NotifyEmployeeDelegate implements JavaDelegate{
         System.out.println("########### BEGIN MAIL ##########################");
         System.out.println("############################### Mail-Empfänger: " + email);
         System.out.println(mailBody);
-        System.out.println("########### END MAIL ############################");    
+        System.out.println("########### END MAIL ############################");
     }
     
 }
